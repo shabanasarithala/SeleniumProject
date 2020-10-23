@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ElementUtil {
 
 	WebDriver driver;
+	JavaScriptUtil jsUtil;
 
 	/**
 	 * 
@@ -32,6 +33,7 @@ public class ElementUtil {
 
 	public WebElement get_element(By locator) {
 		WebElement element = driver.findElement(locator);
+		jsUtil.flash(element);
 		return element;
 	}
 
@@ -290,14 +292,13 @@ public class ElementUtil {
 		return true;
 
 	}
-	
-	public void clickElementWhenReady(By locator , int timeout) {
+
+	public void clickElementWhenReady(By locator, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 		get_element(locator).click();
 
 	}
-
 
 	public String waitForTitleToBePresent(String title, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
