@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="sample testng" thread-count="2" parallel="tests">
+
+	<!-- <listeners> <listener class-name ="testngSessions.MyListenersTest" 
+		/> </listeners> -->
+
+
+
+
+	<test name="sample test - 1" verbose="2" thread-count="2"
+		parallel="classes">
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="https://www.google.com/" />
+		<classes>
+
+			<class name="testngSessions.HomePageTest" />
+			<class name="testngSessions.ContactsPageTest" />
+
+		</classes>
+	</test>
+
+	<test name="sample test - 2" verbose="2" thread-count="2"
+		parallel="classes">
+		<parameter name="browser" value="firefox" />
+		<parameter name="url" value="https://www.google.com/" />
+		<classes>
+
+			<class name="testngSessions.HomePageTest" />
+			<class name="testngSessions.ContactsPageTest" />
+
+		</classes>
+	</test>
+</suite>  
